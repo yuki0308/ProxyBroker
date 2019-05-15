@@ -103,7 +103,7 @@ class Proxy:
         self._writer = {'conn': None, 'ssl': None}
 
     def __repr__(self):
-        # <Proxy US 1.12 [HTTP: Anonymous, HTTPS] 10.0.0.1:8080>
+        """ <Proxy US 1.12 [HTTP: Anonymous, HTTPS] 10.0.0.1:8080>
         tpinfo = []
         order = lambda tp_lvl: (len(tp_lvl[0]), tp_lvl[0][-1])  # noqa: 731
         for tp, lvl in sorted(self.types.items(), key=order):
@@ -111,13 +111,11 @@ class Proxy:
             s = s.format(tp=tp, lvl=lvl)
             tpinfo.append(s)
         tpinfo = ', '.join(tpinfo)
-        # return '<Proxy {code} {avg:.2f}s [{types}] {host}:{port}>'.format(
+        return '<Proxy {code} {avg:.2f}s [{types}] {host}:{port}>'.format("""
         return '{host}:{port},{code}'.format(
             code=self._geo.code,
-            # types=tpinfo,
             host=self.host,
             port=self.port,
-            # avg=self.avg_resp_time,
         )
 
     @property
