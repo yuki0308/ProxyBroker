@@ -114,8 +114,10 @@ class Proxy:
         return '<Proxy {code} {avg:.2f}s [{types}] {host}:{port}>'.format("""
         return '{host}:{port},{code}'.format(
             code=self._geo.code,
+            # types=tpinfo,
             host=self.host,
             port=self.port,
+            # avg=self.avg_resp_time,
         )
 
     @property
